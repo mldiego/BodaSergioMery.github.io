@@ -666,3 +666,30 @@ section {
   .actions { justify-content: center; }
   .confirmacion-card { padding: 18px; margin: 12px; }
 }
+/* Fix: asegurar miniaturas visibles en móviles */
+#grid .grid-item {
+  position: relative !important;   /* needed for absolute img */
+  overflow: hidden !important;
+  border-radius: 8px;
+  background: #eee;
+  min-height: 110px;               /* respaldo en caso de que el pseudo-element no funcione */
+}
+
+/* pseudo-element fallback para forzar proporción (4:3) */
+#grid .grid-item::before {
+  content: "";
+  display: block;
+  padding-top: 75%; /* 4/3 = 75% */
+}
+
+/* Imagen absolutamente posicionada sobre la caja */
+#grid .grid-item img {
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  opacity: 1 !important;
+  -webkit-transform: translateZ(0); /* trigger compositing on some mobiles */
+}
