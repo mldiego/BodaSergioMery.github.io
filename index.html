@@ -5,6 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boda de Sergio y Mery - 4 de Julio</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos mínimos para la imagen destacada y galería */
+        .hero-image { max-width: 1100px; margin: 0.75rem auto; padding: 0 1rem; }
+        .hero-image img { width: 100%; border-radius: 10px; display:block; box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+
+        /* Galería */
+        #galeria { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
+        #galeria h2 { color: #c0392b; margin-bottom: 0.5rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.6rem; }
+        .grid-item { overflow: hidden; border-radius: 6px; cursor: pointer; }
+        .grid-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .25s ease; }
+        .grid-item:hover img { transform: scale(1.05); }
+        .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.85); display: none; align-items: center; justify-content: center; padding: 1rem; z-index: 2000; }
+        .modal.open { display: flex; }
+        .modal-content { max-width: 95%; max-height: 95%; position: relative; }
+        .modal-content img { max-width: 100%; max-height: 100%; border-radius: 6px; display: block; }
+        .modal-close { position: absolute; top: -10px; right: -10px; background: #fff; border-radius: 50%; width: 36px; height: 36px; display: inline-grid; place-items: center; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,0.3); font-weight: 700; }
+        .pie { color: #666; font-size: .95rem; margin-bottom: .75rem; }
+    </style>
 </head>
 <body>
     <!-- Sección de encabezado principal -->
@@ -18,6 +37,11 @@
         </div>
     </header>
 
+    <!-- Imagen adicional solicitada (sin cambiar el encabezado) -->
+    <div class="hero-image" aria-hidden="false">
+        <img src="pics/IMG_4453.JPEG" alt="Momento especial de la boda de Sergio y Mery" loading="lazy">
+    </div>
+
     <!-- Navegación -->
     <nav class="navbar">
         <ul>
@@ -26,6 +50,7 @@
             <li><a href="#detalles">Detalles</a></li>
             <li><a href="#ubicacion">Ubicación</a></li>
             <li><a href="#confirmacion">Confirmación</a></li>
+            <li><a href="#galeria">Galería</a></li>
         </ul>
     </nav>
 
@@ -52,18 +77,6 @@
         </div>
     </section>
 
-    <!-- Sección de historia -->
-    <!-- <section id="historia" class="historia-section">
-        <div class="container">
-            <h2>Nuestra Historia</h2>
-            <div class="divider"></div>
-            <p class="historia-texto">
-                Después de compartir tantos momentos especiales juntos, hemos decidido dar el siguiente paso 
-                en nuestra vida. Queremos celebrar nuestro amor rodeados de las personas más importantes para nosotros.
-            </p>
-        </div>
-    </section> -->
-
     <!-- Sección de detalles del evento -->
     <section id="detalles" class="detalles-section">
         <div class="container">
@@ -73,13 +86,13 @@
                 <div class="evento-card">
                     <div class="icon">💒</div>
                     <h3>Ceremonia</h3>
-                    <p class="hora">12:300h</p>
-                    <p>La ceremonia y posterior celebracion se celebrara en La Casona de Torrelodones.</p>
+                    <p class="hora">12:30h</p>
+                    <p>La ceremonia y posterior celebración se celebrará en La Casona de Torrelodones.</p>
                 </div>
                 <div class="evento-card">
                     <div class="icon">🎉</div>
                     <h3>Transporte</h3>
-                    <p>E LA casona hay parking y llegan ubers y taxis sin problema hasta la puerta, se puede dejar el coche ahi y recogerlo a la mañana siguiente.</p>
+                    <p>En La Casona hay parking y llegan ubers y taxis sin problema hasta la puerta, se puede dejar el coche ahí y recogerlo a la mañana siguiente.</p>
                 </div>
                 <div class="evento-card">
                     <div class="icon">👔</div>
@@ -169,6 +182,64 @@
         </div>
     </section>
 
+    <!-- Nueva sección: Galería -->
+    <section id="galeria" class="galeria-section">
+        <div class="container">
+            <h2>Galería de fotos</h2>
+            <p class="pie">Haz clic en una miniatura para ver la foto a tamaño completo.</p>
+            <div class="grid" id="grid">
+                <div class="grid-item"><img src="pics/16010AF6-80FD-4B8F-85E7-6974BAE9927E-44809-0000065B086A1D8B.jpg" alt=""></div>
+                <div class="grid-item"><img src="pics/2025-05-29_15-53-17_000.jpeg" alt=""></div>
+                <div class="grid-item"><img src="pics/2207F52E-D998-4862-BEA7-4240E0833955-6075-000001C771E25209.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/3BCAA632-0F59-4DB1-9E2D-FCA7CA12C579-6091-000007516375E10F.jpg" alt=""></div>
+                <div class="grid-item"><img src="pics/475AA2EB-245D-4DC5-AB83-AE248EE0864B.jpg" alt=""></div>
+                <div class="grid-item"><img src="pics/64FF0639-1056-4C75-A8D1-7204FB552740.jpg" alt=""></div>
+                <div class="grid-item"><img src="pics/6C5CBE0F-959B-4829-95AA-330A97F23096-10352-0000018DA20D0EB3.jpg" alt=""></div>
+                <div class="grid-item"><img src="pics/6C95CA2C-0B3D-4BD9-A47C-D7D4A5C885CE.jpg" alt=""></div>
+                <div class="grid-item"><img src="pics/868139DB-99FB-45D8-B6BC-ADE6F934F134.jpg" alt=""></div>
+                <div class="grid-item"><img src="pics/8c22ea7f-0f76-45d1-87c3-f00bfcf4e119.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/E153AEFB-002E-4900-9225-87658D8069C1-891-0000004344C8F05E.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG-20240502-WA0028.jpg" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG-20240622-WA0020.jpg" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_0467.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_0829.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_1135.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_1585.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_1623.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_2681.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_2797.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_3091.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_3500.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_3910.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_3923.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_4335.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_4389.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_4453.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_4864.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_5297.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_5767.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_5771.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_6401.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_6558.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_6724.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_7029.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_7144.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_7233.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_7237.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_7245.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/IMG_9816.JPEG" alt=""></div>
+            </div>
+        </div>
+
+        <!-- Modal / Lightbox -->
+        <div id="modal" class="modal" role="dialog" aria-hidden="true">
+            <div class="modal-content" role="document">
+                <button id="modalClose" class="modal-close" aria-label="Cerrar">×</button>
+                <img id="modalImage" src="" alt="">
+            </div>
+        </div>
+    </section>
+
     <!-- Pie de página -->
     <footer>
         <div class="container">
@@ -180,5 +251,41 @@
     <!-- Script para la cuenta regresiva -->
     <script src="script.js"></script>
     <script src="rsvp.js"></script>
+
+    <!-- Script para la galería/lightbox -->
+    <script>
+        (function(){
+            const grid = document.getElementById('grid');
+            const modal = document.getElementById('modal');
+            const modalImage = document.getElementById('modalImage');
+            const modalClose = document.getElementById('modalClose');
+
+            if (grid) {
+                grid.addEventListener('click', (e) => {
+                    const img = e.target.closest('img');
+                    if (!img) return;
+                    const src = img.getAttribute('src');
+                    if (!src) return;
+                    openModal(src, img.alt || '');
+                });
+            }
+
+            modalClose && modalClose.addEventListener('click', closeModal);
+            modal && modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+            function openModal(src, alt) {
+                modalImage.src = src;
+                modalImage.alt = alt;
+                modal.classList.add('open');
+                modal.setAttribute('aria-hidden', 'false');
+            }
+            function closeModal() {
+                modal.classList.remove('open');
+                modal.setAttribute('aria-hidden', 'true');
+                modalImage.src = '';
+            }
+        })();
+    </script>
 </body>
 </html>
