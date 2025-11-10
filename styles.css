@@ -500,3 +500,169 @@ header .invitacion {
 section {
     animation: fadeIn 0.8s ease-out;
 }
+
+/* ===== Mejoras RSVP y galería móvil ===== */
+
+/* --- Tarjeta del formulario RSVP --- */
+.confirmacion-card {
+  max-width: 1000px;
+  margin: 24px auto 0;
+  background: rgba(255,255,255,0.98);
+  color: #222;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+}
+
+/* Recolocar el form dentro de la tarjeta y estilo general */
+#rsvp-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+/* Campos que ocupan todo el ancho */
+#rsvp-form .full {
+  grid-column: 1 / -1;
+}
+
+/* Etiquetas y campos */
+#rsvp-form label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+  font-size: 0.95rem;
+}
+#rsvp-form input[type="text"],
+#rsvp-form input[type="email"],
+#rsvp-form input[type="number"],
+#rsvp-form select,
+#rsvp-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: #fff;
+  color: #222;
+  font-size: 1rem;
+  outline: none;
+  transition: box-shadow .12s ease, transform .06s ease;
+}
+#rsvp-form textarea { min-height: 120px; resize: vertical; }
+
+/* Focus */
+#rsvp-form input:focus,
+#rsvp-form select:focus,
+#rsvp-form textarea:focus {
+  box-shadow: 0 10px 30px rgba(102,126,234,0.14);
+  transform: translateY(-2px);
+  border-color: rgba(102,126,234,0.85);
+}
+
+/* Radios mejor presentados */
+.radio-group {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.radio-pill {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.06);
+  background: #f6f7fb;
+  cursor: pointer;
+  user-select: none;
+}
+.radio-pill input { margin: 0; accent-color: #667eea; }
+
+/* Acciones y botones */
+.actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 6px;
+  grid-column: 1 / -1;
+}
+
+/* Botón principal (píldora) */
+#rsvp-submit {
+  background: linear-gradient(90deg,#667eea,#764ba2);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 28px rgba(102,126,234,0.18);
+  transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+}
+#rsvp-submit:hover { transform: translateY(-3px); box-shadow: 0 16px 44px rgba(102,126,234,0.22); }
+#rsvp-submit:active { transform: translateY(-1px); }
+
+/* Botón secundario neutro */
+.button-secondary {
+  background: transparent;
+  color: #333;
+  border: 1px solid rgba(0,0,0,0.08);
+  padding: 10px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+/* Mensaje de estado */
+#rsvp-status { margin-left: 6px; color: #333; font-weight: 600; }
+
+/* --- Galería: fallback robusto para móviles (aspect ratio) --- */
+/* caja con proporción usando pseudo-elemento y posicionamiento absoluto
+   esto evita que algunos navegadores móviles colapsen la altura */
+.grid-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #eee;
+  min-height: 110px; /* respaldo */
+}
+
+/* Pseudo-element para forzar altura proporcional (4:3) */
+.grid-item::before {
+  content: "";
+  display: block;
+  padding-top: 75%; /* 4/3 = 75% */
+}
+
+/* Imagen posicionada sobre el pseudo-elemento */
+.grid-item img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .25s ease, opacity .18s ease;
+  opacity: 1;
+}
+
+/* Si hay hover/scale */
+.grid-item:hover img { transform: scale(1.05); }
+
+/* Si por alguna razón la imagen no carga, mostramos un icono o color neutro */
+.grid-item img:not([src]) { opacity: 0; }
+
+/* Asegurar que en móviles las miniaturas siempre aparezcan */
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 0.45rem; }
+  .grid-item { min-height: 100px; }
+}
+
+/* Responsivo: el formulario pasa a una columna en pantallas pequeñas */
+@media (max-width: 900px) {
+  #rsvp-form { grid-template-columns: 1fr; gap: 12px; padding: 0; }
+  .actions { justify-content: center; }
+  .confirmacion-card { padding: 18px; margin: 12px; }
+}
