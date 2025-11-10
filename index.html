@@ -291,5 +291,21 @@
             }
         })();
     </script>
+    <script>
+      // Forzar que las miniaturas se muestren si algún navegador colapsa su contenedor
+      document.addEventListener('DOMContentLoaded', function(){
+        document.querySelectorAll('#grid .grid-item img').forEach(img => {
+          // re-aplicar el src para forzar recarga en casos raros
+          const src = img.getAttribute('src');
+          if (src) {
+            // una ligera espera para no bloquear el hilo de render
+            setTimeout(()=> {
+              img.loading = 'eager'; // evitar lazy-loading en móviles problemáticos
+              img.src = src;
+            }, 60);
+          }
+        });
+      });
+    </script>
 </body>
 </html>
