@@ -119,68 +119,72 @@
 
     <!-- Sección de confirmación -->
     <section id="confirmacion" class="confirmacion-section">
-        <div class="container">
-            <h2>Confirmación de Asistencia</h2>
-            <div class="divider"></div>
-            <p class="confirmacion-texto">
-                Por favor, confirma tu asistencia antes del 1 de junio.
-            </p>
-        <form id="rsvp-form">
-            <div class="form-row">
-              <label for="name">Nombre completo</label>
-              <input id="name" name="name" type="text" required />
-            </div>
-    
-            <div class="form-row">
-              <label for="email">Correo electrónico</label>
-              <input id="email" name="email" type="email" required />
-            </div>
-    
-            <div class="form-row">
-              <label>¿Asistirás?</label>
-              <label><input type="radio" name="attending" value="Sí" required /> Sí</label>
-              <label><input type="radio" name="attending" value="No" /> No</label>
-            </div>
-    
-            <div class="form-row">
-              <label for="guests">Número de invitados contigo (0 si vienes solo)</label>
-              <input id="guests" name="guests" type="number" min="0" value="0" required />
-            </div>
-    
-            <div class="form-row">
-              <label for="meal">Preferencia de comida / menú</label>
-              <select id="meal" name="meal">
-                <option value="Ninguna">Ninguna / No aplica</option>
-                <option value="Carne">Carne</option>
-                <option value="Pescado">Pescado</option>
-                <option value="Vegetariano">Vegetariano</option>
-                <option value="Vegano">Vegano</option>
-              </select>
-            </div>
-    
-            <div class="form-row">
-              <label for="dietary">Alergias / restricciones</label>
-              <input id="dietary" name="dietary" type="text" placeholder="Ej. Gluten, lactosa..." />
-            </div>
-    
-            <div class="form-row">
-              <label for="song">Canción que quieres escuchar</label>
-              <input id="song" name="song" type="text" />
-            </div>
-    
-            <div class="form-row">
-              <label for="message">Mensaje para los novios</label>
-              <textarea id="message" name="message" rows="3"></textarea>
-            </div>
-    
-            <div class="form-row">
-              <button id="rsvp-submit" type="submit">Enviar RSVP</button>
-            </div>
-    
-            <div id="rsvp-status" role="status" aria-live="polite"></div>
-          </form>
+  <div class="container">
+    <h2>Confirmación de Asistencia</h2>
+    <div class="divider"></div>
+    <p class="confirmacion-texto">Por favor, confirma tu asistencia antes del 1 de junio.</p>
+
+    <div class="confirmacion-card" aria-labelledby="confirmacion">
+      <form id="rsvp-form" aria-describedby="rsvp-instrucciones" novalidate>
+        <div class="form-row">
+          <label for="name">Nombre completo</label>
+          <input id="name" name="name" type="text" required />
         </div>
-    </section>
+
+        <div class="form-row">
+          <label for="email">Correo electrónico</label>
+          <input id="email" name="email" type="email" required />
+        </div>
+
+        <div class="form-row full">
+          <label>¿Asistirás?</label>
+          <div class="radio-group">
+            <label class="radio-pill"><input type="radio" name="attending" value="Sí" required /> Sí</label>
+            <label class="radio-pill"><input type="radio" name="attending" value="No" /> No</label>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="guests">Número de invitados contigo</label>
+          <input id="guests" name="guests" type="number" min="0" value="0" />
+        </div>
+
+        <div class="form-row">
+          <label for="meal">Preferencia de comida / menú</label>
+          <select id="meal" name="meal">
+            <option value="Ninguna">Ninguna / No aplica</option>
+            <option value="Carne">Carne</option>
+            <option value="Pescado">Pescado</option>
+            <option value="Vegetariano">Vegetariano</option>
+            <option value="Vegano">Vegano</option>
+          </select>
+        </div>
+
+        <div class="form-row full">
+          <label for="dietary">Alergias / restricciones</label>
+          <input id="dietary" name="dietary" type="text" placeholder="Ej. gluten, lactosa..." />
+        </div>
+
+        <div class="form-row full">
+          <label for="song">Canción que quieres escuchar</label>
+          <input id="song" name="song" type="text" />
+        </div>
+
+        <div class="form-row full">
+          <label for="message">Mensaje para los novios</label>
+          <textarea id="message" name="message" rows="3"></textarea>
+        </div>
+
+        <div class="actions full" aria-hidden="false">
+          <button id="rsvp-submit" type="submit">Enviar RSVP</button>
+          <button type="button" class="button-secondary" onclick="document.getElementById('rsvp-form').reset();">Borrar</button>
+          <div id="rsvp-status" role="status" aria-live="polite"></div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</section>
 
     <!-- Nueva sección: Galería -->
     <section id="galeria" class="galeria-section">
