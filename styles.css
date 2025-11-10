@@ -35,7 +35,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,101.3C1248,85,1344,75,1392,69.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,[...]');
     background-size: cover;
 }
 
@@ -317,6 +317,73 @@ body {
     margin-top: 30px;
 }
 
+/* Estilos para el formulario RSVP (mejor estructura y botones redondeados) */
+#rsvp-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    max-width: 900px;
+    margin: 30px auto 0;
+    text-align: left;
+}
+
+#rsvp-form .form-row {
+    display: flex;
+    flex-direction: column;
+}
+
+#rsvp-form .form-row.full { grid-column: 1 / -1; }
+
+#rsvp-form label { font-weight: 600; margin-bottom: 6px; color: rgba(255,255,255,0.95); }
+
+#rsvp-form input[type="text"],
+#rsvp-form input[type="email"],
+#rsvp-form input[type="number"],
+#rsvp-form select,
+#rsvp-form textarea {
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.95);
+    color: #222;
+    font-size: 1rem;
+    outline: none;
+    transition: box-shadow .15s ease, transform .08s ease;
+}
+
+#rsvp-form textarea { min-height: 100px; resize: vertical; }
+
+#rsvp-form input:focus,
+#rsvp-form select:focus,
+#rsvp-form textarea:focus {
+    box-shadow: 0 6px 20px rgba(102,126,234,0.18);
+    transform: translateY(-2px);
+    border-color: rgba(102,126,234,0.9);
+}
+
+#rsvp-form .form-row .radio-group { display:flex; gap:12px; align-items:center; }
+#rsvp-form .form-row .radio-group label { font-weight: 500; color: rgba(255,255,255,0.95); }
+
+#rsvp-form .actions { grid-column: 1 / -1; display:flex; gap:12px; align-items:center; justify-content:flex-start; margin-top:6px; }
+
+#rsvp-submit {
+    background: linear-gradient(90deg,#667eea,#764ba2);
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 999px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 28px rgba(102,126,234,0.2);
+    transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+}
+
+#rsvp-submit:hover { transform: translateY(-3px); box-shadow: 0 14px 38px rgba(102,126,234,0.25); }
+
+#rsvp-submit:active { transform: translateY(-1px); }
+
+#rsvp-status { color: rgba(255,255,255,0.95); margin-top:8px; }
+
 /* Pie de página */
 footer {
     background-color: #2c2c2c;
@@ -335,67 +402,35 @@ footer p {
     font-size: 1.1rem;
 }
 
-/* Diseño responsive */
-@media (max-width: 768px) {
-    .nombres {
-        font-size: 2.5rem;
-    }
-    
-    .fecha {
-        font-size: 1.4rem;
-    }
-    
-    .lugar {
-        font-size: 1.1rem;
-    }
-    
-    .navbar ul {
-        flex-direction: column;
-    }
-    
-    .navbar a {
-        padding: 15px 20px;
-    }
-    
-    .countdown {
-        gap: 15px;
-    }
-    
-    .time-unit {
-        padding: 20px 30px;
-        min-width: 100px;
-    }
-    
-    .time-unit span {
-        font-size: 2rem;
-    }
-    
-    .eventos-grid {
-        grid-template-columns: 1fr;
-    }
+/* Galería y soluciones para móviles: asegurar que los thumbnails siempre tengan tamaño en móvil */
+#galeria { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
+#galeria h2 { color: #c0392b; margin-bottom: 0.5rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.6rem; }
+.grid-item {
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    aspect-ratio: 4/3; /* moderno: mantiene altura consistente en móviles */
+    min-height: 110px; /* fallback para navegadores sin aspect-ratio */
 }
-
-/* Animaciones suaves */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .25s ease;
 }
+.grid-item:hover img { transform: scale(1.05); }
 
-section {
-    animation: fadeIn 0.8s ease-out;
-}
+/* Modal */
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,0.85); display: none; align-items: center; justify-content: center; padding: 1rem; z-index: 2000; }
+.modal.open { display: flex; }
+.modal-content { max-width: 95%; max-height: 95%; position: relative; }
+.modal-content img { max-width: 100%; max-height: 100%; border-radius: 6px; display: block; }
+.modal-close { position: absolute; top: -10px; right: -10px; background: #fff; border-radius: 50%; width: 36px; height: 36px; display: inline-grid; place-items: center; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,0.3); font-weight: 700; }
+.pie { color: #666; font-size: .95rem; margin-bottom: .75rem; }
 
-/* ---------------------------
-  Encabezado con imagen de fondo
-  Pegar al final de styles.css o reemplazar reglas de header.hero
---------------------------- */
-
+/* Encabezado con imagen de fondo (mantener) */
 header.hero {
   position: relative;
   display: flex;
@@ -406,7 +441,7 @@ header.hero {
   text-align: center;
   background-image:
     linear-gradient(rgba(0,0,0,0.36), rgba(0,0,0,0.36)),
-    url('pics/16010AF6-80FD-4B8F-85E7-6974BAE9927E-44809-0000065B086A1D8B.jpg');    /* <- cambia el nombre si prefieres otra imagen */
+    url('pics/16010AF6-80FD-4B8F-85E7-6974BAE9927E-44809-0000065B086A1D8B.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -427,8 +462,41 @@ header .invitacion {
   text-shadow: 0 1px 8px rgba(0,0,0,0.5);
 }
 
-/* Ajustes para pantallas pequeñas */
-@media (max-width: 600px) {
-  header { min-height: 240px; }
-  header .nombres { font-size: 1.6rem; }
+/* Ajustes para pantallas pequeñas: formulario responsive y galería */
+@media (max-width: 900px) {
+    #rsvp-form { grid-template-columns: 1fr; padding: 0 10px; }
+    #rsvp-form .actions { justify-content: center; }
+}
+
+@media (max-width: 768px) {
+    .nombres { font-size: 2.5rem; }
+    .fecha { font-size: 1.4rem; }
+    .lugar { font-size: 1.1rem; }
+    .navbar ul { flex-direction: column; }
+    .navbar a { padding: 15px 20px; }
+    .countdown { gap: 15px; }
+    .time-unit { padding: 20px 30px; min-width: 100px; }
+    .time-unit span { font-size: 2rem; }
+    .eventos-grid { grid-template-columns: 1fr; }
+    header { min-height: 240px; }
+    header .nombres { font-size: 1.6rem; }
+    /* ensure gallery images show on mobile by giving grid items height */
+    .grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+    .grid-item { min-height: 100px; }
+}
+
+/* Animaciones suaves */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section {
+    animation: fadeIn 0.8s ease-out;
 }
