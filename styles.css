@@ -362,7 +362,7 @@ body {
 }
 
 #rsvp-form .form-row .radio-group { display:flex; gap:12px; align-items:center; }
-#rsvp-form .form-row .radio-group label { font-weight: 500; color: rgba(255,255,255,0.95); }
+#rsvp-form .form-row .radio-group label { font-weight: 500; color: #333; }
 
 #rsvp-form .actions { grid-column: 1 / -1; display:flex; gap:12px; align-items:center; justify-content:flex-start; margin-top:6px; }
 
@@ -405,22 +405,19 @@ footer p {
 /* Galería y soluciones para móviles: asegurar que los thumbnails siempre tengan tamaño en móvil */
 #galeria { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
 #galeria h2 { color: #c0392b; margin-bottom: 0.5rem; }
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.6rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
 .grid-item {
     overflow: hidden;
     border-radius: 8px;
-    cursor: pointer;
     aspect-ratio: 4/3; /* moderno: mantiene altura consistente en móviles */
-    min-height: 110px; /* fallback para navegadores sin aspect-ratio */
+    min-height: 180px; /* fallback para navegadores sin aspect-ratio */
 }
 .grid-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform .25s ease;
 }
-.grid-item:hover img { transform: scale(1.05); }
 
 /* Modal */
 /* .modal { 
@@ -452,7 +449,7 @@ header.hero {
     linear-gradient(rgba(0,0,0,0.36), rgba(0,0,0,0.36)),
     url('pics/16010AF6-80FD-4B8F-85E7-6974BAE9927E-44809-0000065B086A1D8B.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center 70%;
   background-repeat: no-repeat;
   background-attachment: scroll;
 }
@@ -585,6 +582,7 @@ section {
   background: #f6f7fb;
   cursor: pointer;
   user-select: none;
+  color: #333;
 }
 .radio-pill input { margin: 0; accent-color: #667eea; }
 

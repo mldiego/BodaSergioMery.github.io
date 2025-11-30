@@ -26,7 +26,7 @@
             <li><a href="#detalles">Detalles</a></li>
             <li><a href="#ubicacion">Ubicación</a></li>
             <li><a href="#confirmacion">Confirmación</a></li>
-            <li><a href="#galeria">Galería</a></li>
+            <li><a href="#galeria">Nuestra Historia</a></li>
         </ul>
     </nav>
 
@@ -66,7 +66,7 @@
                     <p>La ceremonia y posterior celebración se celebrará en La Casona de Torrelodones.</p>
                 </div>
                 <div class="evento-card">
-                    <div class="icon">🎉</div>
+                    <div class="icon">🚗</div>
                     <h3>Transporte</h3>
                     <p>En La Casona hay parking y llegan ubers y taxis sin problema hasta la puerta, se puede dejar el coche ahí y recogerlo a la mañana siguiente.</p>
                 </div>
@@ -121,29 +121,28 @@
         </div>
 
         <div class="form-row">
-          <label for="guests">Número de invitados contigo</label>
+          <label for="guests">Número de asistentes total</label>
           <input id="guests" name="guests" type="number" min="0" value="0" />
         </div>
 
         <div class="form-row">
-          <label for="meal">Preferencia de comida / menú</label>
-          <select id="meal" name="meal">
-            <option value="Ninguna">Ninguna / No aplica</option>
-            <option value="Carne">Carne</option>
-            <option value="Pescado">Pescado</option>
-            <option value="Vegetariano">Vegetariano</option>
-            <option value="Vegano">Vegano</option>
+          <label for="kids">Número de niños</label>
+          <input id="kids" name="kids" type="number" min="0" value="0" />
+        </div>
+
+        <div class="form-row kids-menu-section" id="kids-menu-section" style="display: none;">
+          <label for="kids-meal">Menú para niños</label>
+          <select id="kids-meal" name="kids-meal">
+            <option value="Infantil">Menú infantil</option>
+            <option value="Adulto">Menú adulto</option>
           </select>
         </div>
+
+
 
         <div class="form-row full">
           <label for="dietary">Alergias / restricciones</label>
           <input id="dietary" name="dietary" type="text" placeholder="Ej. gluten, lactosa..." />
-        </div>
-
-        <div class="form-row full">
-          <label for="song">Canción que quieres escuchar</label>
-          <input id="song" name="song" type="text" />
         </div>
 
         <div class="form-row full">
@@ -162,60 +161,17 @@
   </div>
 </section>
 
-    <!-- Nueva sección: Galería -->
+    <!-- Nueva sección: Nuestra Historia -->
     <section id="galeria" class="galeria-section">
         <div class="container">
-            <h2>Galería de fotos</h2>
-            <p class="pie">Haz clic en una miniatura para ver la foto a tamaño completo.</p>
+            <h2>Nuestra Historia</h2>
+            <p class="pie">Nuestra Historia va aqui</p>
             <div class="grid" id="grid">
-                <div class="grid-item"><img src="pics/16010AF6-80FD-4B8F-85E7-6974BAE9927E-44809-0000065B086A1D8B.jpg" alt=""></div>
-                <div class="grid-item"><img src="pics/2025-05-29_15-53-17_000.jpeg" alt=""></div>
-                <div class="grid-item"><img src="pics/2207F52E-D998-4862-BEA7-4240E0833955-6075-000001C771E25209.JPEG" alt=""></div>
-                <div class="grid-item"><img src="pics/3BCAA632-0F59-4DB1-9E2D-FCA7CA12C579-6091-000007516375E10F.jpg" alt=""></div>
-                <div class="grid-item"><img src="pics/475AA2EB-245D-4DC5-AB83-AE248EE0864B.jpg" alt=""></div>
-                <div class="grid-item"><img src="pics/64FF0639-1056-4C75-A8D1-7204FB552740.jpg" alt=""></div>
-                <div class="grid-item"><img src="pics/6C5CBE0F-959B-4829-95AA-330A97F23096-10352-0000018DA20D0EB3.jpg" alt=""></div>
-                <div class="grid-item"><img src="pics/6C95CA2C-0B3D-4BD9-A47C-D7D4A5C885CE.jpg" alt=""></div>
-                <div class="grid-item"><img src="pics/868139DB-99FB-45D8-B6BC-ADE6F934F134.jpg" alt=""></div>
-                <div class="grid-item"><img src="pics/8c22ea7f-0f76-45d1-87c3-f00bfcf4e119.JPEG" alt=""></div>
-                <div class="grid-item"><img src="pics/E153AEFB-002E-4900-9225-87658D8069C1-891-0000004344C8F05E.JPEG" alt=""></div>
-                <div class="grid-item"><img src="pics/IMG-20240502-WA0028.jpg" alt=""></div>
-                <div class="grid-item"><img src="pics/IMG-20240622-WA0020.jpg" alt=""></div>
-                <div class="grid-item"><img src="pics/IMG_0467.JPEG" alt=""></div>
                 <div class="grid-item"><img src="pics/IMG_0829.JPEG" alt=""></div>
-                <div class="grid-item"><img src="pics/IMG_1135.JPEG" alt=""></div>
-                <div class="grid-item"><img src="pics/IMG_1585.JPEG" alt=""></div>
-                <div class="grid-item"><img src="pics/IMG_1623.JPEG" alt=""></div>
-                <div class="grid-item"><img src="pics/IMG_2681.JPEG" alt=""></div>
-                <div class="grid-item"><img src="pics/IMG_2797.JPEG" alt=""></div>
-                <div class="grid-item"><img src="pics/IMG_3091.JPEG" alt=""></div>
-                <div class="grid-item"><img src="pics/IMG_3500.JPEG" alt=""></div>
-                <div class="grid-item"><img src="pics/IMG_3910.JPEG" alt=""></div>
-                <div class="grid-item"><img src="pics/IMG_3923.JPEG" alt=""></div>
-                <div class="grid-item"><img src="pics/IMG_4335.JPEG" alt=""></div>
-                <div class="grid-item"><img src="pics/IMG_4389.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/2025-05-29_15-53-17_000.jpeg" alt=""></div>
                 <div class="grid-item"><img src="pics/IMG_4453.JPEG" alt=""></div>
                 <div class="grid-item"><img src="pics/IMG_4864.JPEG" alt=""></div>
-                <div class="grid-item"><img src="pics/IMG_5297.JPEG" alt=""></div>
-                <div class="grid-item"><img src="pics/IMG_5767.JPEG" alt=""></div>
-                <div class="grid-item"><img src="pics/IMG_5771.JPEG" alt=""></div>
-                <div class="grid-item"><img src="pics/IMG_6401.JPEG" alt=""></div>
-                <div class="grid-item"><img src="pics/IMG_6558.JPEG" alt=""></div>
-                <div class="grid-item"><img src="pics/IMG_6724.JPEG" alt=""></div>
                 <div class="grid-item"><img src="pics/IMG_7029.JPEG" alt=""></div>
-                <div class="grid-item"><img src="pics/IMG_7144.JPEG" alt=""></div>
-                <div class="grid-item"><img src="pics/IMG_7233.JPEG" alt=""></div>
-                <div class="grid-item"><img src="pics/IMG_7237.JPEG" alt=""></div>
-                <div class="grid-item"><img src="pics/IMG_7245.JPEG" alt=""></div>
-                <div class="grid-item"><img src="pics/IMG_9816.JPEG" alt=""></div>
-            </div>
-        </div>
-
-        <!-- Modal / Lightbox -->
-        <div id="modal" class="modal" role="dialog" aria-hidden="true">
-            <div class="modal-content" role="document">
-                <button id="modalClose" class="modal-close" aria-label="Cerrar">×</button>
-                <img id="modalImage" src="" alt="">
             </div>
         </div>
     </section>
@@ -232,41 +188,7 @@
     <script src="script.js"></script>
     <script src="rsvp.js"></script>
 
-    <!-- Script para la galería/lightbox -->
-    <script>
-        (function(){
-            const grid = document.getElementById('grid');
-            const modal = document.getElementById('modal');
-            const modalImage = document.getElementById('modalImage');
-            const modalClose = document.getElementById('modalClose');
 
-            if (grid) {
-                grid.addEventListener('click', (e) => {
-                    const img = e.target.closest('img');
-                    if (!img) return;
-                    const src = img.getAttribute('src');
-                    if (!src) return;
-                    openModal(src, img.alt || '');
-                });
-            }
-
-            modalClose && modalClose.addEventListener('click', closeModal);
-            modal && modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-            document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
-
-            function openModal(src, alt) {
-                modalImage.src = src;
-                modalImage.alt = alt;
-                modal.classList.add('open');
-                modal.setAttribute('aria-hidden', 'false');
-            }
-            function closeModal() {
-                modal.classList.remove('open');
-                modal.setAttribute('aria-hidden', 'true');
-                modalImage.src = '';
-            }
-        })();
-    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function(){
           // Forzar comportamiento: quitar lazy-loading y forzar redibujo en móviles
@@ -302,6 +224,21 @@
               }
             });
           }, 500);
+
+          // Mostrar/ocultar menú de niños
+          const kidsInput = document.getElementById('kids');
+          const kidsMenuSection = document.getElementById('kids-menu-section');
+          
+          if (kidsInput && kidsMenuSection) {
+            kidsInput.addEventListener('input', function() {
+              const kidsCount = parseInt(this.value) || 0;
+              if (kidsCount > 0) {
+                kidsMenuSection.style.display = 'flex';
+              } else {
+                kidsMenuSection.style.display = 'none';
+              }
+            });
+          }
         });
         </script>
 </body>
