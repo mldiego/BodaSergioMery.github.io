@@ -700,3 +700,8 @@ section {
   opacity: 1 !important;
   -webkit-transform: translateZ(0); /* trigger compositing on some mobiles */
 }
+
+#grid .grid-item:first-child img {
+  object-fit: cover !important;
+  object-position: center bottom !important;
+}

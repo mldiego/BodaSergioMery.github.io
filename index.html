@@ -158,8 +158,26 @@
       </form>
     </div>
 
+    <div style="text-align: center; margin-top: 30px;">
+      <button id="registry-btn" style="background: white; color: #667eea; border: 2px solid white; padding: 12px 28px; border-radius: 999px; font-weight: 700; cursor: pointer; font-size: 1rem;">Lista de Regalos</button>
+    </div>
+
   </div>
 </section>
+
+<!-- Modal para lista de regalos -->
+<div id="registry-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 9999; align-items: center; justify-content: center;">
+  <div style="background: white; padding: 40px; border-radius: 16px; max-width: 500px; margin: 20px; position: relative;">
+    <button id="registry-close" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 28px; cursor: pointer; color: #666;">&times;</button>
+    <h3 style="color: #667eea; margin-bottom: 20px; font-size: 1.8rem;">Lista de Regalos</h3>
+    <p style="margin-bottom: 20px; line-height: 1.6;">¡Gracias por pensar en nosotros! Vuestra presencia es nuestro mejor regalo, pero si deseáis contribuir a nuestro futuro juntos, aquí está nuestra información bancaria:</p>
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 15px;">
+      <p style="margin: 8px 0;"><strong>Titular:</strong> Sergio y Mery</p>
+      <p style="margin: 8px 0;"><strong>IBAN:</strong> ES00 0000 0000 0000 0000 0000</p>
+    </div>
+    <p style="font-style: italic; color: #666; font-size: 0.95rem;">¡Muchas gracias por vuestro cariño y generosidad!</p>
+  </div>
+</div>
 
     <!-- Nueva sección: Nuestra Historia -->
     <section id="galeria" class="galeria-section">
@@ -172,6 +190,7 @@
                 <div class="grid-item"><img src="pics/IMG_4453.JPEG" alt=""></div>
                 <div class="grid-item"><img src="pics/IMG_4864.JPEG" alt=""></div>
                 <div class="grid-item"><img src="pics/IMG_7029.JPEG" alt=""></div>
+                <div class="grid-item"><img src="pics/E153AEFB-002E-4900-9225-87658D8069C1-891-0000004344C8F05E.JPEG" alt=""></div>
             </div>
         </div>
     </section>
@@ -236,6 +255,27 @@
                 kidsMenuSection.style.display = 'flex';
               } else {
                 kidsMenuSection.style.display = 'none';
+              }
+            });
+          }
+
+          // Modal de lista de regalos
+          const registryBtn = document.getElementById('registry-btn');
+          const registryModal = document.getElementById('registry-modal');
+          const registryClose = document.getElementById('registry-close');
+          
+          if (registryBtn && registryModal && registryClose) {
+            registryBtn.addEventListener('click', function() {
+              registryModal.style.display = 'flex';
+            });
+            
+            registryClose.addEventListener('click', function() {
+              registryModal.style.display = 'none';
+            });
+            
+            registryModal.addEventListener('click', function(e) {
+              if (e.target === registryModal) {
+                registryModal.style.display = 'none';
               }
             });
           }
